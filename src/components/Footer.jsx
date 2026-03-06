@@ -1,8 +1,11 @@
+
+
 function Footer(){
+  
     return(  
   <div class="fixed bottom-0 w-full bg-white shadow-md flex justify-around py-2">
  
-  <button class="flex flex-col items-center text-sm text-purple-600">
+  <button class="flex flex-col items-center text-sm text-purple-600" >
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="currentColor" viewBox="0 0 24 24">
       <path d="M3 9.75L12 3l9 6.75V21a.75.75 0 01-.75.75H3.75A.75.75 0 013 21V9.75z"/>
     </svg>

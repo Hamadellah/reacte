@@ -1,10 +1,11 @@
-const TournmentCard = ({ tournamentData }) => {
+const TournmentCard = ({ tournamentData,onSelect  }) => {
   return (
     <div className="min-h-screen bg-slate-100 p-10">
       <div className="mt-[3%] grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {tournamentData.map((t) => (
           <div
             key={t.id}
+            onClick={() => onSelect(t)}
             className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition duration-300"
           >
             {/* Title */}
