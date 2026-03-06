@@ -18,7 +18,10 @@ function App() {
           element={<TournmentCard tournamentData={tournamentData} />}
         />
 
-        <Route path="/tournament/:id" element={<TournamentDetails />} />
+                <Route
+          path="/tournament/:id"
+          element={<TournamentDetails tournamentData={tournamentData} />}
+        />
       </Routes>
 
       <Footer />
