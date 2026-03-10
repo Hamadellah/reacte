@@ -1,10 +1,12 @@
+// TournamentCard.jsx
 import { useNavigate } from "react-router-dom";
 import getBadgeStatus from "./Statusbadge";
 import { useState } from "react";
+import Form from "./form";
 
-const TournmentCard = ({ tournamentData }) => {
+const TournamentCard = ({ tournamentData }) => {
   const navigate = useNavigate();
-  const [ showform , setShowform ]= useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   return (
     <div className="min-h-screen bg-slate-100 p-10">
@@ -12,7 +14,6 @@ const TournmentCard = ({ tournamentData }) => {
         {tournamentData.map((t) => (
           <div
             key={t.id}
-            onClick={() => navigate(`/tournament/${t.id}`)}
             className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition duration-300"
           >
             {/* Title */}
@@ -34,8 +35,7 @@ const TournmentCard = ({ tournamentData }) => {
 
             {/* Participants */}
             <p className="text-slate-600 mb-2">
-              <span className="font-medium">Participants:</span>{" "}
-              {t.participantsCount} • {t.visibility}
+              <span className="font-medium">Participants:</span> {t.participantsCount} • {t.visibility}
             </p>
 
             {/* Format */}
@@ -54,12 +54,15 @@ const TournmentCard = ({ tournamentData }) => {
             </p>
 
             {/* Button */}
-               <button
-        onClick={() => setShowform(true)}
-        className="bg-purple-600 text-white px-4 py-2 rounded mt-3"
-      >
-        Inscrire
-      </button>
+            <button
+              onClick={() => setShowForm(true)}
+              className="bg-purple-600 text-white px-4 py-2 rounded mt-3"
+            >
+              Inscrire
+            </button>
+
+            {/* Show Form */}
+            {showForm && <Form onClose={() => setShowForm(false)} />}
           </div>
         ))}
       </div>
@@ -67,4 +70,4 @@ const TournmentCard = ({ tournamentData }) => {
   );
 };
 
-export default TournmentCard;
+export default TournamentCard;
