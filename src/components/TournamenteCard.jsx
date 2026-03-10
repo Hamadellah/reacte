@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
-const TournmentCard = ({ tournamentData  }) => {
-    const navigate = useNavigate();
+import getBadgeStatus from "./Statusbadge";
+
+const TournmentCard = ({ tournamentData }) => {
+  const navigate = useNavigate();
+
   return (
-    
     <div className="min-h-screen bg-slate-100 p-10">
       <div className="mt-[3%] grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {tournamentData.map((t) => (
           <div
             key={t.id}
-             onClick={() => navigate(`/tournament/${t.id}`)}
+            onClick={() => navigate(`/tournament/${t.id}`)}
             className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition duration-300"
           >
             {/* Title */}
@@ -18,14 +20,9 @@ const TournmentCard = ({ tournamentData  }) => {
 
             {/* Status */}
             <span
-              className={`px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block
-                ${
-                  t.status === "On Going"
-                    ? "bg-green-100 text-green-700"
-                    : t.status === "Completed"
-                    ? "bg-blue-100 text-blue-700"
-                    : "bg-yellow-100 text-yellow-700"
-                }`}
+              className={`px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block ${getBadgeStatus(
+                t.status
+              )}`}
             >
               {t.status}
             </span>
@@ -35,7 +32,8 @@ const TournmentCard = ({ tournamentData  }) => {
 
             {/* Participants */}
             <p className="text-slate-600 mb-2">
-              <span className="font-medium">Participants:</span> {t.participantsCount} • {t.visibility}
+              <span className="font-medium">Participants:</span>{" "}
+              {t.participantsCount} • {t.visibility}
             </p>
 
             {/* Format */}
