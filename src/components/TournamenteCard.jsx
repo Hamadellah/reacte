@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import getBadgeStatus from "./Statusbadge";
+import { useState } from "react";
 
 const TournmentCard = ({ tournamentData }) => {
   const navigate = useNavigate();
+  const [ showform , setShowform ]= useState(false);
 
   return (
     <div className="min-h-screen bg-slate-100 p-10">
@@ -47,9 +49,17 @@ const TournmentCard = ({ tournamentData }) => {
             </p>
 
             {/* Location */}
-            <p className="text-slate-600">
+            <p className="text-slate-600 mb-4">
               <span className="font-medium">Location:</span> {t.location}
             </p>
+
+            {/* Button */}
+               <button
+        onClick={() => setShowform(true)}
+        className="bg-purple-600 text-white px-4 py-2 rounded mt-3"
+      >
+        Inscrire
+      </button>
           </div>
         ))}
       </div>
