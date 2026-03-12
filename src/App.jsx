@@ -6,13 +6,14 @@ import Header from "./components/Header";
 import TournmentCard from "./components/TournamenteCard";
 import TournamentDetails from "./components/TournamentDetails";
 import Homepage from "./pages/Homepages";
+import TabsySrem from "./components/tabsysrem";
 
 function App() {
   const [selectedTournament, setSelectedTournament] = useState(null);
   const [tournaments , settournaments] = useState(tournamentData)
 
 const addParticipant = (tournamentId, newParticipant) => {
-  
+
     settournaments(tournaments.map(t => {
       if (t.id === tournamentId) {
         return {
@@ -30,7 +31,11 @@ const addParticipant = (tournamentId, newParticipant) => {
 
         <Route
           path="/tournament/:id"
-          element={<TournamentDetails tournamentData={tournaments} addParticipant={addParticipant} />}
+          element={
+            <>
+            <TabsySrem/>
+          <TournamentDetails tournamentData={tournaments} addParticipant={addParticipant} />
+          </>}
         />
       </Routes>
 
