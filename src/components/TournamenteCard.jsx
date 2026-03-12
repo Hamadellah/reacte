@@ -4,7 +4,7 @@ import { useState } from "react";
 import Form from "./form";
 import InscrireButton from "./Inscrirebutton";
 
-const TournamentCard = ({ tournamentData }) => {
+const TournamentCard = ({ tournamentData, addParticipant }) => {
   const navigate = useNavigate();
   const [activeFormId, setActiveFormId] = useState(null);
 
@@ -72,7 +72,7 @@ const TournamentCard = ({ tournamentData }) => {
 
             {/* Form */}
             {activeFormId === t.id && (
-              <Form onClose={() => setActiveFormId(null)} />
+              <Form addParticipant={addParticipant} tournamentId = {t.id} onClose={() => setActiveFormId(null)} />
             )}
           </div>
         ))}

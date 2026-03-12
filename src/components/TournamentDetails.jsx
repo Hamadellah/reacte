@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import getBadgeStatus from "./Statusbadge";
 import Forme from "./form";
 
-function TournamentDetails({ tournamentData }) {
+function TournamentDetails({ tournamentData , addParticipant }) {
   const { id } = useParams();
   const navigate = useNavigate();
 

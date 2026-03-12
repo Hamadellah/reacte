@@ -9,14 +9,28 @@ import Homepage from "./pages/Homepages";
 
 function App() {
   const [selectedTournament, setSelectedTournament] = useState(null);
+  const [tournaments , settournaments] = useState(tournamentData)
+
+const addParticipant = (tournamentId, newParticipant) => {
+  
+    settournaments(tournaments.map(t => {
+      if (t.id === tournamentId) {
+        return {
+          ...t,
+          participants: [...t.participants, newParticipant]
+        }
+      }
+      return t
+    }))
+  }
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Homepage addParticipant={addParticipant} />} />
 
         <Route
           path="/tournament/:id"
-          element={<TournamentDetails tournamentData={tournamentData} />}
+          element={<TournamentDetails tournamentData={tournaments} addParticipant={addParticipant} />}
         />
       </Routes>
 
