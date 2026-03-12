@@ -5,7 +5,7 @@ function Header(){
      <h1 className="text-lg font-semibold"> Good Morning, <span className="font-bold">Samuel Walker!</span> </h1>
       <div className="flex items-center gap-4">
          
-         <button className="bg-red-500 relative"> 
+         <button className="bg-red-500 rounded-lg  h-[30px] relative"> 
           <span className=" material-icons">notifications</span> 
           </button> {/* Profile Picture */}
            <img  src="https://media.istockphoto.com/id/1300845620/fr/vectoriel/appartement-dic%C3%B4ne-dutilisateur-isol%C3%A9-sur-le-fond-blanc-symbole-utilisateur.jpg?s=612x612&w=0&k=20&c=BVOfS7mmvy2lnfBPghkN__k8OMsg7Nlykpgjn0YOHj0=" alt="Profile" className="w-10 h-10 rounded-full border-2 border-white mr-[20px]" /> </div> 

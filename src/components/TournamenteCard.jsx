@@ -1,4 +1,3 @@
-// TournamentCard.jsx
 import { useNavigate } from "react-router-dom";
 import getBadgeStatus from "./Statusbadge";
 import { useState } from "react";
@@ -6,7 +5,7 @@ import Form from "./form";
 
 const TournamentCard = ({ tournamentData }) => {
   const navigate = useNavigate();
-  const [showForm, setShowForm] = useState(false);
+  const [activeFormId, setActiveFormId] = useState(null);
 
   return (
     <div className="min-h-screen bg-slate-100 p-10">
@@ -35,7 +34,8 @@ const TournamentCard = ({ tournamentData }) => {
 
             {/* Participants */}
             <p className="text-slate-600 mb-2">
-              <span className="font-medium">Participants:</span> {t.participantsCount} • {t.visibility}
+              <span className="font-medium">Participants:</span>{" "}
+              {t.participantsCount} • {t.visibility}
             </p>
 
             {/* Format */}
@@ -53,16 +53,31 @@ const TournamentCard = ({ tournamentData }) => {
               <span className="font-medium">Location:</span> {t.location}
             </p>
 
-            {/* Button */}
-            <button
-              onClick={() => setShowForm(true)}
-              className="bg-purple-600 text-white px-4 py-2 rounded mt-3"
-            >
-              Inscrire
-            </button>
+            {/* Buttons */}
+            <div className="flex gap-3 mt-3">
 
-            {/* Show Form */}
-            {showForm && <Form onClose={() => setShowForm(false)} />}
+              {/* Details */}
+              <button
+                onClick={() => navigate(`/tournament/${t.id}`)}
+                className="bg-blue-600 text-white px-4 py-2 rounded"
+              >
+                participante
+              </button>
+
+              {/* Inscrire */}
+              <button
+                onClick={() => setActiveFormId(t.id)}
+                className="bg-purple-600 text-white px-4 py-2 rounded"
+              >
+                Inscrire
+              </button>
+
+            </div>
+
+            {/* Form */}
+            {activeFormId === t.id && (
+              <Form onClose={() => setActiveFormId(null)} />
+            )}
           </div>
         ))}
       </div>

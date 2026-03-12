@@ -1,4 +1,4 @@
-// Form.jsx
+
 import React from "react";
 
 function Form({ onClose }) {
@@ -22,8 +22,14 @@ function Form({ onClose }) {
           required
         />
         <input
-          type="email"
-          placeholder="Your email"
+          type="text"
+          placeholder="entre your state"
+          className="border p-2 rounded"
+          required
+        />
+        <input
+          type="text"
+          placeholder="your picter"
           className="border p-2 rounded"
           required
         />
