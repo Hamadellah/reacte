@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import getBadgeStatus from "./Statusbadge";
 import { useState } from "react";
 import Form from "./form";
+import InscrireButton from "./Inscrirebutton";
 
 const TournamentCard = ({ tournamentData }) => {
   const navigate = useNavigate();
@@ -65,12 +66,7 @@ const TournamentCard = ({ tournamentData }) => {
               </button>
 
               {/* Inscrire */}
-              <button
-                onClick={() => setActiveFormId(t.id)}
-                className="bg-purple-600 text-white px-4 py-2 rounded"
-              >
-                Inscrire
-              </button>
+            <InscrireButton onClick={()=>setActiveFormId(t.id)}/>
 
             </div>
 

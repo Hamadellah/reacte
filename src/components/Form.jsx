@@ -1,7 +1,6 @@
-
 import React from "react";
 
-function Form({ onClose }) {
+function Forme({ onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Registration successful!");
@@ -10,9 +9,7 @@ function Form({ onClose }) {
 
   return (
     <div className="mt-4 bg-gray-100 p-4 rounded shadow">
-      <h2 className="text-lg font-bold mb-3">
-        Tournament Registration
-      </h2>
+      <h2 className="text-lg font-bold mb-3">Tournament Registration</h2>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <input
@@ -34,10 +31,7 @@ function Form({ onClose }) {
           required
         />
 
-        <button
-          type="submit"
-          className="bg-green-600 text-white p-2 rounded"
-        >
+        <button type="submit" className="bg-green-600 text-white p-2 rounded">
           Confirm
         </button>
 
@@ -53,4 +47,4 @@ function Form({ onClose }) {
   );
 }
 
-export default Form;
+export default Forme;

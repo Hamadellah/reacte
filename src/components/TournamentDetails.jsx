@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import getBadgeStatus from "./Statusbadge";
-import Form from "./form";
+import Forme from "./form";
 
 function TournamentDetails({ tournamentData }) {
   const { id } = useParams();
