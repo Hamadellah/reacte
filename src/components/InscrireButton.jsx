@@ -1,4 +1,4 @@
-// components/InscrireButton.jsx
+
 function InscrireButton({ onClick }) {
   return (
     <button

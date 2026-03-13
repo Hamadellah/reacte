@@ -13,24 +13,21 @@ function RegisterParticipant({ tournament, onUpdate, onClose, addParticipant, to
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-    const newParticipant = {
-      id: Date.now(),
-      name: formData.name,
-      state: formData.state,
-      avatar: formData.picture,
-      status: "Pending"
-    };
-
-    addParticipant(tournamentId ,newParticipant);
-    
-    
-     
-   
-    onClose();
+  const newParticipant = {
+    id: Date.now(),
+    name: formData.name,
+    state: formData.state,
+    avatar: formData.picture,
+    status: "Pending"
   };
+
+  addParticipant(newParticipant); // غير participant
+
+  onClose();
+};
 
   return (
     <div className="mt-4 bg-gray-100 p-4 rounded shadow">

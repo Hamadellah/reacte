@@ -1,11 +1,15 @@
 import Header from "../components/Header";
+import TournamentCard from "../components/TournamenteCard";
 import TournmentCard from "../components/TournamenteCard";
 import { tournamentData } from "../data/tournmentDB";
 function Homepage({addParticipant}) {
   return (
     <>
       <Header />
-      <TournmentCard tournamentData={tournamentData} addParticipant={addParticipant} />
+            <TournamentCard
+        tournamentData={tournamentData}
+        addParticipant={addParticipant}
+      />
     </>
   );
 }
