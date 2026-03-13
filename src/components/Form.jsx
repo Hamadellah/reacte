@@ -1,6 +1,7 @@
 // components/RegisterParticipant.jsx
 import React, { useState } from "react";
 
+
 function RegisterParticipant({ tournament, onUpdate, onClose, addParticipant, tournamentId }) {
   const [formData, setFormData] = useState({
     name: "",

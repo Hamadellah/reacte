@@ -3,7 +3,6 @@ import getBadgeStatus from "./Statusbadge";
 import { useState } from "react";
 import Form from "./form";
 import InscrireButton from "./Inscrirebutton";
-import Desa from "./Desinscrirebuton";
 
 const TournamentCard = ({ tournamentData, addParticipant }) => {
   const navigate = useNavigate();
@@ -69,7 +68,7 @@ const TournamentCard = ({ tournamentData, addParticipant }) => {
               {/* Inscrire */}
             <InscrireButton onClick={()=>setActiveFormId(t.id)}/>
               {/* desa */}
-              <Desa/>
+              
 
             </div>
 
