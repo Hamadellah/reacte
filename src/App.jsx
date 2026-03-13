@@ -27,15 +27,7 @@ const addParticipant = (tournamentId, newParticipant) => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-  path="/"
-  element={
-    <Homepage
-      tournamentData={tournaments}
-      addParticipant={addParticipant}
-    />
-  }
-/>
+        <Route path="/" element={<Homepage addParticipant={addParticipant} />} />
 
         <Route
           path="/tournament/:id"

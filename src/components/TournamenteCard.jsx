@@ -6,25 +6,7 @@ import InscrireButton from "./Inscrirebutton";
 
 const TournamentCard = ({ tournamentData, addParticipant }) => {
   const navigate = useNavigate();
-
   const [activeFormId, setActiveFormId] = useState(null);
-  const [registered, setRegistered] = useState([]); // state ديال التسجيل
-
-  const handleRegisterClick = (id) => {
-    if (registered.includes(id)) {
-      // Désinscrire
-      setRegistered(registered.filter((t) => t !== id));
-    } else {
-      // afficher form
-      setActiveFormId(id);
-    }
-  };
-
-  const handleFormSubmit = (participant, id) => {
-    addParticipant(id, participant);
-    setRegistered([...registered, id]);
-    setActiveFormId(null);
-  };
 
   return (
     <div className="min-h-screen bg-slate-100 p-10">
@@ -34,10 +16,12 @@ const TournamentCard = ({ tournamentData, addParticipant }) => {
             key={t.id}
             className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-2 transition duration-300"
           >
+            {/* Title */}
             <h2 className="text-xl font-semibold text-slate-900 mb-2">
               {t.title}
             </h2>
 
+            {/* Status */}
             <span
               className={`px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block ${getBadgeStatus(
                 t.status
@@ -46,25 +30,31 @@ const TournamentCard = ({ tournamentData, addParticipant }) => {
               {t.status}
             </span>
 
+            {/* Description */}
             <p className="text-slate-600 mb-4">{t.description}</p>
 
+            {/* Participants */}
             <p className="text-slate-600 mb-2">
               <span className="font-medium">Participants:</span>{" "}
               {t.participantsCount} • {t.visibility}
             </p>
 
+            {/* Format */}
             <p className="text-slate-600 mb-2">
               <span className="font-medium">Format:</span> {t.format}
             </p>
 
+            {/* Date */}
             <p className="text-slate-600 mb-2">
               <span className="font-medium">Date:</span> {t.date}
             </p>
 
+            {/* Location */}
             <p className="text-slate-600 mb-4">
               <span className="font-medium">Location:</span> {t.location}
             </p>
 
+            {/* Buttons */}
             <div className="flex gap-3 mt-3">
 
               {/* Details */}
@@ -76,22 +66,13 @@ const TournamentCard = ({ tournamentData, addParticipant }) => {
               </button>
 
               {/* Inscrire */}
-              <button
-                onClick={() => handleRegisterClick(t.id)}
-                className="bg-green-600 text-white px-4 py-2 rounded"
-              >
-                {registered.includes(t.id) ? "Désinscrire" : "Inscrire"}
-              </button>
+            <InscrireButton onClick={()=>setActiveFormId(t.id)}/>
 
             </div>
 
             {/* Form */}
             {activeFormId === t.id && (
-              <Form
-                tournamentId={t.id}
-                addParticipant={(data) => handleFormSubmit(data, t.id)}
-                onClose={() => setActiveFormId(null)}
-              />
+              <Form addParticipant={addParticipant} tournamentId = {t.id} onClose={() => setActiveFormId(null)} />
             )}
           </div>
         ))}
