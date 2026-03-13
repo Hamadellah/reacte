@@ -5,7 +5,7 @@ function Homepage({addParticipant}) {
   return (
     <>
       <Header />
-      <TournmentCard tournamentData={tournamentData} addParticipant={addParticipant} />
+      <TournmentCard tournamentData={tournamentData} addParticipant={addParticipant}   />
     </>
   );
 }
